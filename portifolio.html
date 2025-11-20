@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Designer especializado em thumbnails para YouTube - Minecraft">
     <title>Designer de Thumbnails Minecraft | Portfólio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
         
         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         .gradient-bg {
@@ -42,6 +50,20 @@
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.1);
         }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -50,9 +72,11 @@
     <nav class="fixed w-full z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">
+                <div class="text-xl md:text-2xl font-bold gradient-bg bg-clip-text text-transparent">
                     Thumbnail Designer
                 </div>
+                
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#inicio" class="hover:text-purple-400 transition">Início</a>
                     <a href="#sobre" class="hover:text-purple-400 transition">Sobre</a>
@@ -60,6 +84,22 @@
                     <a href="#servicos" class="hover:text-purple-400 transition">Serviços</a>
                     <a href="#contato" class="hover:text-purple-400 transition">Contato</a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden mobile-menu-button text-white" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden pb-4" id="mobileMenu">
+                <a href="#inicio" class="block py-2 hover:text-purple-400 transition" onclick="toggleMenu()">Início</a>
+                <a href="#sobre" class="block py-2 hover:text-purple-400 transition" onclick="toggleMenu()">Sobre</a>
+                <a href="#portfolio" class="block py-2 hover:text-purple-400 transition" onclick="toggleMenu()">Portfólio</a>
+                <a href="#servicos" class="block py-2 hover:text-purple-400 transition" onclick="toggleMenu()">Serviços</a>
+                <a href="#contato" class="block py-2 hover:text-purple-400 transition" onclick="toggleMenu()">Contato</a>
             </div>
         </div>
     </nav>
@@ -68,18 +108,18 @@
     <section id="inicio" class="minecraft-bg pt-32 pb-20 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center animate-float">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <h1 class="text-4xl md:text-7xl font-bold mb-6">
                     Designer de Thumbnails <br>
                     <span class="gradient-bg bg-clip-text text-transparent">para YouTube</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                <p class="text-lg md:text-2xl text-gray-300 mb-8">
                     Especialista em Minecraft | Aumentando o CTR do seu canal
                 </p>
                 <div class="flex justify-center gap-4 flex-wrap">
-                    <a href="#portfolio" class="gradient-bg px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+                    <a href="#portfolio" class="gradient-bg px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition">
                         Ver Portfólio
                     </a>
-                    <a href="#contato" class="border-2 border-purple-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-500 transition">
+                    <a href="#contato" class="border-2 border-purple-500 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-purple-500 transition">
                         Fazer Orçamento
                     </a>
                 </div>
@@ -90,18 +130,18 @@
     <!-- Sobre Mim -->
     <section id="sobre" class="py-20 px-4 bg-gray-800">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">
                 Sobre <span class="gradient-bg bg-clip-text text-transparent">Mim</span>
             </h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
                     <div class="bg-gradient-to-br from-purple-600 to-blue-600 p-1 rounded-2xl">
-                        <div class="bg-gray-900 p-8 rounded-2xl">
-                            <h3 class="text-2xl font-bold mb-4">Designer Gráfico Especializado</h3>
-                            <p class="text-gray-300 leading-relaxed mb-4">
+                        <div class="bg-gray-900 p-6 md:p-8 rounded-2xl">
+                            <h3 class="text-xl md:text-2xl font-bold mb-4">Designer Gráfico Especializado</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4 text-sm md:text-base">
                                 Sou designer gráfico especializado em thumbnails para YouTube, com foco total na comunidade de Minecraft. Domino composição visual, recorte avançado, colorização, sombras e efeitos que aumentam o CTR e deixam o vídeo mais atrativo para o público.
                             </p>
-                            <p class="text-gray-300 leading-relaxed">
+                            <p class="text-gray-300 leading-relaxed text-sm md:text-base">
                                 Crio thumbnails com estilo profissional, limpo e pensado estrategicamente para destacar seu conteúdo e melhorar o desempenho do canal. Sou dedicado, rápido nas entregas e sempre aberto a feedbacks para garantir que o resultado final fique exatamente do jeito que você precisa.
                             </p>
                         </div>
@@ -109,21 +149,21 @@
                 </div>
                 <div>
                     <div class="space-y-4">
-                        <div class="skill-card border border-purple-500/30 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold mb-2">🎨 Composição Visual</h4>
-                            <p class="text-gray-400">Design estratégico para maximizar cliques</p>
+                        <div class="skill-card border border-purple-500/30 p-4 md:p-6 rounded-xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-2">🎨 Composição Visual</h4>
+                            <p class="text-gray-400 text-sm md:text-base">Design estratégico para maximizar cliques</p>
                         </div>
-                        <div class="skill-card border border-blue-500/30 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold mb-2">✂️ Recorte Avançado</h4>
-                            <p class="text-gray-400">Skins, mobs e builds com precisão profissional</p>
+                        <div class="skill-card border border-blue-500/30 p-4 md:p-6 rounded-xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-2">✂️ Recorte Avançado</h4>
+                            <p class="text-gray-400 text-sm md:text-base">Skins, mobs e builds com precisão profissional</p>
                         </div>
-                        <div class="skill-card border border-green-500/30 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold mb-2">💡 Iluminação & Efeitos</h4>
-                            <p class="text-gray-400">Sombras e highlights que destacam elementos</p>
+                        <div class="skill-card border border-green-500/30 p-4 md:p-6 rounded-xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-2">💡 Iluminação & Efeitos</h4>
+                            <p class="text-gray-400 text-sm md:text-base">Sombras e highlights que destacam elementos</p>
                         </div>
-                        <div class="skill-card border border-yellow-500/30 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold mb-2">⚡ Entrega Rápida</h4>
-                            <p class="text-gray-400">Qualidade e agilidade nas revisões</p>
+                        <div class="skill-card border border-yellow-500/30 p-4 md:p-6 rounded-xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-2">⚡ Entrega Rápida</h4>
+                            <p class="text-gray-400 text-sm md:text-base">Qualidade e agilidade nas revisões</p>
                         </div>
                     </div>
                 </div>
@@ -134,75 +174,75 @@
     <!-- Portfólio -->
     <section id="portfolio" class="py-20 px-4 minecraft-bg">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">
                 Meu <span class="gradient-bg bg-clip-text text-transparent">Portfólio</span>
             </h2>
-            <p class="text-center text-gray-400 mb-12 text-lg">Thumbnails que convertem visualizações</p>
+            <p class="text-center text-gray-400 mb-12 text-base md:text-lg">Thumbnails que convertem visualizações</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- Portfolio Item 1 -->
                 <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
                     <div class="aspect-video bg-gradient-to-br from-green-600 to-emerald-800 flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">Survival Series</span>
+                        <span class="text-white font-bold text-lg md:text-xl">Survival Series</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Série Survival</h3>
-                        <p class="text-gray-400">Thumbnail para série de sobrevivência</p>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Série Survival</h3>
+                        <p class="text-gray-400 text-sm md:text-base">Thumbnail para série de sobrevivência</p>
                     </div>
                 </div>
 
                 <!-- Portfolio Item 2 -->
                 <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
                     <div class="aspect-video bg-gradient-to-br from-red-600 to-orange-800 flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">PvP Battle</span>
+                        <span class="text-white font-bold text-lg md:text-xl">PvP Battle</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Batalha PvP</h3>
-                        <p class="text-gray-400">Arte para vídeos de combate</p>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Batalha PvP</h3>
+                        <p class="text-gray-400 text-sm md:text-base">Arte para vídeos de combate</p>
                     </div>
                 </div>
 
                 <!-- Portfolio Item 3 -->
                 <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
                     <div class="aspect-video bg-gradient-to-br from-blue-600 to-cyan-800 flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">Bedwars</span>
+                        <span class="text-white font-bold text-lg md:text-xl">Bedwars</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Bedwars Match</h3>
-                        <p class="text-gray-400">Thumbnail para partidas competitivas</p>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Bedwars Match</h3>
+                        <p class="text-gray-400 text-sm md:text-base">Thumbnail para partidas competitivas</p>
                     </div>
                 </div>
 
                 <!-- Portfolio Item 4 -->
                 <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
                     <div class="aspect-video bg-gradient-to-br from-purple-600 to-pink-800 flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">Skyblock</span>
+                        <span class="text-white font-bold text-lg md:text-xl">Skyblock</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Skyblock Series</h3>
-                        <p class="text-gray-400">Design para série skyblock</p>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Skyblock Series</h3>
+                        <p class="text-gray-400 text-sm md:text-base">Design para série skyblock</p>
                     </div>
                 </div>
 
                 <!-- Portfolio Item 5 -->
                 <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
                     <div class="aspect-video bg-gradient-to-br from-yellow-600 to-amber-800 flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">Tutorial</span>
+                        <span class="text-white font-bold text-lg md:text-xl">Tutorial</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Tutorial Build</h3>
-                        <p class="text-gray-400">Thumbnails educativas</p>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Tutorial Build</h3>
+                        <p class="text-gray-400 text-sm md:text-base">Thumbnails educativas</p>
                     </div>
                 </div>
 
                 <!-- Portfolio Item 6 -->
                 <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
                     <div class="aspect-video bg-gradient-to-br from-indigo-600 to-violet-800 flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">Speedrun</span>
+                        <span class="text-white font-bold text-lg md:text-xl">Speedrun</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Speedrun Challenge</h3>
-                        <p class="text-gray-400">Arte para desafios de velocidade</p>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold mb-2">Speedrun Challenge</h3>
+                        <p class="text-gray-400 text-sm md:text-base">Arte para desafios de velocidade</p>
                     </div>
                 </div>
             </div>
@@ -212,15 +252,15 @@
     <!-- Serviços -->
     <section id="servicos" class="py-20 px-4 bg-gray-800">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">
                 O Que Eu <span class="gradient-bg bg-clip-text text-transparent">Faço</span>
             </h2>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 p-8 rounded-2xl border border-purple-500/30">
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-gray-900 p-6 md:p-8 rounded-2xl border border-purple-500/30">
                     <div class="text-4xl mb-4">🎮</div>
-                    <h3 class="text-2xl font-bold mb-4">Thumbnails Custom</h3>
-                    <ul class="text-gray-400 space-y-2">
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">Thumbnails Custom</h3>
+                    <ul class="text-gray-400 space-y-2 text-sm md:text-base">
                         <li>✓ Design personalizado</li>
                         <li>✓ Alta resolução</li>
                         <li>✓ Otimizado para CTR</li>
@@ -228,10 +268,10 @@
                     </ul>
                 </div>
 
-                <div class="bg-gray-900 p-8 rounded-2xl border border-blue-500/30">
+                <div class="bg-gray-900 p-6 md:p-8 rounded-2xl border border-blue-500/30">
                     <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-2xl font-bold mb-4">Entrega Expressa</h3>
-                    <ul class="text-gray-400 space-y-2">
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">Entrega Expressa</h3>
+                    <ul class="text-gray-400 space-y-2 text-sm md:text-base">
                         <li>✓ Entrega em 24-48h</li>
                         <li>✓ Comunicação direta</li>
                         <li>✓ Feedback rápido</li>
@@ -239,10 +279,10 @@
                     </ul>
                 </div>
 
-                <div class="bg-gray-900 p-8 rounded-2xl border border-green-500/30">
+                <div class="bg-gray-900 p-6 md:p-8 rounded-2xl border border-green-500/30">
                     <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-2xl font-bold mb-4">Pacotes para Canais</h3>
-                    <ul class="text-gray-400 space-y-2">
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">Pacotes para Canais</h3>
+                    <ul class="text-gray-400 space-y-2 text-sm md:text-base">
                         <li>✓ Identidade visual consistente</li>
                         <li>✓ Múltiplas thumbnails</li>
                         <li>✓ Descontos progressivos</li>
@@ -256,43 +296,43 @@
     <!-- Experiência -->
     <section class="py-20 px-4 minecraft-bg">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">
                 Experiência <span class="gradient-bg bg-clip-text text-transparent">Profissional</span>
             </h2>
             
-            <div class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700">
-                <p class="text-gray-300 leading-relaxed mb-6">
+            <div class="bg-gray-800/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-gray-700">
+                <p class="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
                     Atuo como designer de thumbnails focado no nicho de Minecraft, criando imagens chamativas e otimizadas para YouTube. Minha experiência inclui:
                 </p>
                 
                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                     <div class="flex items-start">
                         <span class="text-purple-400 mr-2">▸</span>
-                        <p class="text-gray-300">Criação de thumbnails para séries, desafios, PvP, Bedwars, Skyblock, tutoriais e speedruns</p>
+                        <p class="text-gray-300 text-sm md:text-base">Criação de thumbnails para séries, desafios, PvP, Bedwars, Skyblock, tutoriais e speedruns</p>
                     </div>
                     <div class="flex items-start">
                         <span class="text-purple-400 mr-2">▸</span>
-                        <p class="text-gray-300">Manipulação de imagens, efeitos de iluminação e sombras</p>
+                        <p class="text-gray-300 text-sm md:text-base">Manipulação de imagens, efeitos de iluminação e sombras</p>
                     </div>
                     <div class="flex items-start">
                         <span class="text-purple-400 mr-2">▸</span>
-                        <p class="text-gray-300">Recorte avançado de skins, mobs e builds</p>
+                        <p class="text-gray-300 text-sm md:text-base">Recorte avançado de skins, mobs e builds</p>
                     </div>
                     <div class="flex items-start">
                         <span class="text-purple-400 mr-2">▸</span>
-                        <p class="text-gray-300">Composição visual para aumentar o CTR</p>
+                        <p class="text-gray-300 text-sm md:text-base">Composição visual para aumentar o CTR</p>
                     </div>
                     <div class="flex items-start">
                         <span class="text-purple-400 mr-2">▸</span>
-                        <p class="text-gray-300">Estilo vibrante e profissional, seguindo referências dos maiores criadores</p>
+                        <p class="text-gray-300 text-sm md:text-base">Estilo vibrante e profissional, seguindo referências dos maiores criadores</p>
                     </div>
                     <div class="flex items-start">
                         <span class="text-purple-400 mr-2">▸</span>
-                        <p class="text-gray-300">Trabalho com rapidez, criatividade e consistência</p>
+                        <p class="text-gray-300 text-sm md:text-base">Trabalho com rapidez, criatividade e consistência</p>
                     </div>
                 </div>
                 
-                <p class="text-gray-400 italic">
+                <p class="text-gray-400 italic text-sm md:text-base">
                     Sempre entregando arte em alta qualidade e pronta para uso.
                 </p>
             </div>
@@ -302,21 +342,21 @@
     <!-- Call to Action -->
     <section id="contato" class="py-20 px-4 bg-gray-800">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
                 Pronto para <span class="gradient-bg bg-clip-text text-transparent">Aumentar</span> seu CTR?
             </h2>
-            <p class="text-xl text-gray-400 mb-8">
+            <p class="text-lg md:text-xl text-gray-400 mb-8">
                 Entre em contato e vamos criar thumbnails incríveis para o seu canal!
             </p>
             
             <div class="flex justify-center gap-4 flex-wrap mb-12">
-                <a href="mailto:raian.pro9@gmail.com" class="gradient-bg px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition inline-flex items-center">
+                <a href="mailto:raian.pro9@gmail.com" class="gradient-bg px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition inline-flex items-center">
                     <span class="mr-2">📧</span> Email
                 </a>
-                <a href="https://wa.me/seu-numero" class="bg-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-700 transition inline-flex items-center">
+                <a href="https://wa.me/5585987680084" target="_blank" rel="noopener noreferrer" class="bg-green-600 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-green-700 transition inline-flex items-center">
                     <span class="mr-2">💬</span> WhatsApp
                 </a>
-                <a href="https://discord.com/users/seu-usuario" class="bg-indigo-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-700 transition inline-flex items-center">
+                <a href="https://discord.com/users/raian0590" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-indigo-700 transition inline-flex items-center">
                     <span class="mr-2">🎮</span> Discord
                 </a>
             </div>
@@ -326,10 +366,27 @@
     <!-- Footer -->
     <footer class="minecraft-bg py-8 px-4 border-t border-gray-800">
         <div class="max-w-7xl mx-auto text-center text-gray-400">
-            <p>&copy; 2025 Raian Uchôa | Thumbnail Designer</p>
-            <p class="mt-2 text-sm">Elevando canais de Minecraft a outro nível 🎮</p>
+            <p class="text-sm md:text-base">&copy; 2024 Thumbnail Designer | Especialista em Minecraft</p>
+            <p class="mt-2 text-xs md:text-sm">Elevando canais de Minecraft a outro nível 🎮</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Fecha o menu ao clicar fora dele
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const button = document.querySelector('.mobile-menu-button');
+            
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
 
 </body>
 </html>
